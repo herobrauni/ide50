@@ -105,6 +105,7 @@ sudo apt-get install -y libcs50=8.1.2
 echo "Installing other packages..."
 
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+source ~/.bashrc
 
 # node 9.8.0
 bash -l -c "nvm install 9.8.0 && nvm alias default 9.8.0"
