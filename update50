@@ -106,6 +106,9 @@ echo "Installing other packages..."
 
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 source ~/.bashrc
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 
 # node 9.8.0
 bash -l -c "nvm install 9.8.0 && nvm alias default 9.8.0"
