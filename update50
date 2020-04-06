@@ -162,6 +162,10 @@ sudo chown -R ubuntu:ubuntu /opt/pyenv
 echo "Removing unneeded packages..."
 sudo apt-get autoremove -y
 
+
+curl -L https://npmjs.org/install.sh | sudo sh
+
+
 # ensure npm prefix is writable
 # some old workspaces have this prefix mounted read-only
 bash -l -c ' \
