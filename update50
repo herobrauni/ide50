@@ -163,7 +163,14 @@ echo "Removing unneeded packages..."
 sudo apt-get autoremove -y
 
 
+
+#git clone https://github.com/nodejs/node.git
+#cd node
+#make
+#sudo make install
+
 curl -L https://npmjs.org/install.sh | sudo sh
+sudo apt install nodejs
 
 
 # ensure npm prefix is writable
