@@ -33,63 +33,6 @@ deb: clean Makefile
 	git clone --depth=1 https://github.com/cs50/ide.git "$(OFFLINE_DIR)"
 	@cp "$(OFFLINE_DIR)"/files/workspace-cs50.js "$(CONFIGS_DIR)"
 
-	@echo "\nBuilding Deb..."
-	echo "version=$(VERSION)" > "$(VERSION_FILE)"
-
-	# set permissions
-	chmod -R 755 "$(FILES_DIR)/usr/bin/"
-	chmod 644 "$(VERSION_FILE)" "$(FILES_DIR)/etc/profile.d/ide50.sh" "$(FILES_DIR)/home/ubuntu/.cs50/prompt"
-
-	fpm \
-	-C "$(FILES_DIR)" \
-	--after-install postinst \
-	--category misc \
-	--deb-changelog changelog \
-	--deb-no-default-config-files \
-	--deb-priority optional \
-	--depends \
-		"adminer50 (>= 1.0.1), \
-		apache2, \
-		astyle (>= 3.0.1), \
-		bc, \
-		clang-3.8, \
-		dnsutils, \
-		dos2unix, \
-		git (>= 1:2.13.0), \
-		git-lfs (>= 2.3.4), \
-		gdbserver, \
-		inotify-tools, \
-		libcs50-java (>= 2.0.2), \
-		libphp-phpmailer, \
-		libxslt1-dev, \
-		manpages-dev, \
-		ngrok-client, \
-		nodejs, \
-		openjdk-7-jdk, \
-		pgloader (>= 3.4.1), \
-		php-cs50 (>= 6.0.0), \
-		php5-cgi, \
-		php5-curl, \
-		php5-sqlite, \
-		php5-xdebug, \
-		phpliteadmin (>= 1.4.0), \
-		sqlite3, \
-		telnet, \
-		traceroute, \
-		wamerican, \
-		whois" \
-	--license "" \
-	--maintainer "CS50 <sysadmins@cs50.harvard.edu>" \
-	-n "$(NAME)" \
-	-s dir \
-	-t deb \
-	-v $(VERSION) \
-	--vendor CS50 \
-	--description "installs necessary software on CS50 IDE" \
-	--provides "$(NAME)" \
-	--url "https://github.com/cs50" \
-	.
-
 clean:
 	@echo "Cleaning up..."
 	rm -rf *.deb "$(C9SDK_DIR)" "$(OFFLINE_DIR)" "$(VERSION_FILE)"
