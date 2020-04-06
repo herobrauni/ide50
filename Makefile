@@ -1,5 +1,5 @@
 FILES_DIR := files
-C9SDK_DIR := $(FILES_DIR)/var/c9sdk
+C9SDK_DIR := /var/c9sdk
 CONFIGS_DIR := $(C9SDK_DIR)/configs/ide
 OFFLINE_DIR := /tmp/ide
 PLUGINS_DIR := $(C9SDK_DIR)/plugins
